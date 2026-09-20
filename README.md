@@ -73,7 +73,7 @@ Explore how the document is divided internally.
 
 For every chunk, the application displays:
 
-- Chunk Number
+- Chunk NumberS
 - Page Number
 - Character Count
 - Word Count

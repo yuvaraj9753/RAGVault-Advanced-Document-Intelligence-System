@@ -86,7 +86,7 @@ with st.sidebar:
 
         st.write("🗂 Vector DB : FAISS")
 
-        st.write("🤖 LLM : Llama-3.3-70B")
+        st.write("🤖 LLM : openai/gpt-oss-20b")
 
         if hasattr(rag, "processing_time"):
 
