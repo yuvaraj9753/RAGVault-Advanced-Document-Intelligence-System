@@ -4,7 +4,7 @@ import streamlit as st
 from services.rag_pipeline import RAGSystem
 
 st.set_page_config(
-    page_title="Advanced RAG Chatbot",
+    page_title="RAGVault — Advanced Document Intelligence System",
     page_icon="📚",
     layout="wide"
 )
@@ -41,7 +41,7 @@ if "summary" not in st.session_state:
 
 # -------------------- Title --------------------
 
-st.title("📚 Advanced RAG Chatbot")
+st.title("📚 RAGVault — Advanced Document Intelligence System")
 
 st.caption(
     "Upload a PDF and chat with it using Retrieval-Augmented Generation (RAG)"
