@@ -1,39 +1,26 @@
 import os
-import requests
 from dotenv import load_dotenv
+from langchain_groq import ChatGroq
 
 load_dotenv()
 
-API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
-HEADERS = {
-    "Authorization": f"Bearer {os.getenv('GROQ_API_KEY')}",
-    "Content-Type": "application/json"
-}
+# --------------------------------------------------
+# Groq LLM
+# --------------------------------------------------
+
+llm = ChatGroq(
+    model="openai/gpt-oss-20b",
+    temperature=0.2,
+    api_key=os.getenv("GROQ_API_KEY")
+)
 
 
 def call_llm(prompt, temperature=0.2):
 
-    data = {
-        "model": "openai/gpt-oss-20b",
-        "messages": [
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ],
-        "temperature": temperature
-    }
+    response = llm.invoke(prompt)
 
-    response = requests.post(
-        API_URL,
-        headers=HEADERS,
-        json=data
-    )
-
-    response.raise_for_status()
-
-    return response.json()["choices"][0]["message"]["content"]
+    return response.content
 
 
 # --------------------------------------------------
